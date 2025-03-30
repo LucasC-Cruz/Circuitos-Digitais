@@ -1,0 +1,103 @@
+module switch_binary(
+    /*switch para o binário*/
+    input wire A,
+    input wire B,
+    input wire C,
+    input wire D,
+    input wire E,
+    output wire S0,
+    output wire S1,
+    output wire S2,
+    output wire S3,
+    output wire S4,
+    output wire S5,
+    output wire S6,
+output wire S0_hex,
+output wire S1_hex,
+output wire S2_hex,
+output wire S3_hex,
+output wire S4_hex,
+output wire S5_hex,
+output wire S6_hex,
+
+output wire S7_hex,
+output wire S8_hex,
+output wire S9_hex,
+output wire S10_hex,
+output wire S11_hex,
+output wire S12_hex,
+output wire S13_hex,
+
+output wire S14_hex,
+output wire S15_hex,
+output wire S16_hex,
+output wire S17_hex,
+output wire S18_hex,
+output wire S19_hex,
+output wire S20_hex
+);
+
+
+wire w1, w2, w3, w4, w5, w6;
+wire w7, w8, w9, w10, w11, w12;
+wire w13, w14, w15, w16, w17, w18;
+wire w19, w20, w21, w22, w23, w24;
+wire w25, w26, w27, w28;
+wire Dn, Bn, Cn, An, En;
+
+binary_hexadecimal(.B(S0), .C(S1), .D(S2), .out_a(S0_hex), .out_b(S1_hex), .out_c(S2_hex), .out_d(S3_hex), .out_e(S4_hex), .out_f(S5_hex), .out_g(S6_hex));
+binary_hexadecimal_less(.A(S3), .B(S4), .C(S5), .D(S6), .out_a(S7_hex), .out_b(S8_hex), .out_c(S9_hex), .out_d(S10_hex), .out_e(S11_hex), .out_f(S12_hex), .out_g(S13_hex));
+switch_caractere(.a(A), .b(B), .c(C), .d(D), .e(E), .out_a(S14_hex), .out_b(S15_hex), .out_c(S16_hex), .out_d(S17_hex), .out_e(S18_hex), .out_f(S19_hex), .out_g(S20_hex));
+
+not(Dn,D);
+not(Bn, B);
+not(Cn, C);
+not(An, A);
+not(En, E);
+
+
+and(w1, B, D);
+and(w2, B, C);
+
+or(S0, w1, w2, A);
+
+
+and(w5, An, Bn);
+and(w6, Cn, Dn);
+and(w7, Bn, Cn);
+or(S1, w5, w6, w7);
+
+and(w8, An, Bn);
+and(w9, C, D, E);
+and(w10, An, Cn, Dn);
+and(w11, Bn, D, E);
+or(S2, w8, w9, w10, w11);
+
+and(w12, B, Cn, Dn);
+and(w13, B, C, D, E);
+and(w14, A, D);
+or(S3, w12, w13, w14);
+
+
+and(w15, An, Bn, C);
+and(w16, C, Dn, E);
+and(w17, C, D, En);
+and(w18, A, E);
+and(w19, A, D);
+or(S4, w15, w16, w17, w18, w19);
+
+
+and(w20, B, C, Dn, En);
+and(w21, A, Cn, En);
+and(w22, An, Bn, D);
+and(w23, An, D, E);
+or(S5, w20, w21, w22, w23);
+
+and(w24, An, Bn, E);
+and(w25, B, D, En);
+and(w26, B, C, En);
+and(w27, A, D, En);
+and(w28, An, Cn, Dn, E);
+or(S6, w24, w25, w26, w27, w28);
+
+endmodule
