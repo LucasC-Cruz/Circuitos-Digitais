@@ -1,0 +1,56 @@
+//MODULO DOS 4 BITS MAIS SIGNIFICATIVOS
+
+module binary_hexadecimal(
+    input A, B, C, D,
+    output out_a, out_b, out_c, out_d, out_e, out_f, out_g
+);
+    wire nA, nB, nC, nD;
+    wire t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18, t19, t20, t21, t22, t23, t24, t25;
+   
+    // Negação das entradas
+    not (nA, A);
+    not (nB, B);
+    not (nC, C);
+    not (nD, D);
+   
+    // Expressões para cada saída
+    and (t1, nA, nB, nC, D);
+    and (t2, nA, B, nC, nD);
+    and (t3, A, nB, C, D);
+    and (t4, A, B, nC, D);
+    or  (out_a, t1, t2, t3, t4);
+   
+    and (t5, nA, B, nC, D);
+    and (t6, B, C, nD);
+    and (t7, A, C, D);
+    and (t8, A, B, nD);
+    or  (out_b, t5, t6, t7, t8);
+   
+    and (t9, nA, nB, C, nD);
+    and (t10, A, B, nD);
+    and (t11, A, B, C);
+    or  (out_c, t9, t10, t11);
+   
+    and (t12, nA, nB, nC, D);
+    and (t13, nA, B, nC, nD);
+    and (t14, B, C, D);
+    and (t15, A, nB, C, nD);
+    or  (out_d, t12, t13, t14, t15);
+   
+    and (t16, nA, D);
+    and (t17, nA, B, nC);
+    and (t18, nB, nC, D);
+    or  (out_e, t16, t17, t18);
+   
+    and (t19, nA, nB, D);
+    and (t20, nA, nB, C);
+    and (t21, nA, C, D);
+    and (t22, A, B, nC, D);
+    or  (out_f, t19, t20, t21, t22);
+   
+    and (t23, nA, nB, nC);
+    and (t24, nA, B, C, D);
+    and (t25, A, B, nC, nD);
+    or  (out_g, t23, t24, t25);
+   
+endmodule
