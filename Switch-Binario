@@ -34,7 +34,16 @@ output wire S16_hex,
 output wire S17_hex,
 output wire S18_hex,
 output wire S19_hex,
-output wire S20_hex
+output wire S20_hex,
+
+output wire S21_hex,
+output wire S22_hex,
+output wire S23_hex,
+output wire S24_hex,
+output wire S25_hex,
+output wire S26_hex
+
+
 );
 
 
@@ -48,6 +57,8 @@ wire Dn, Bn, Cn, An, En;
 binary_hexadecimal(.B(S0), .C(S1), .D(S2), .out_a(S0_hex), .out_b(S1_hex), .out_c(S2_hex), .out_d(S3_hex), .out_e(S4_hex), .out_f(S5_hex), .out_g(S6_hex));
 binary_hexadecimal_less(.A(S3), .B(S4), .C(S5), .D(S6), .out_a(S7_hex), .out_b(S8_hex), .out_c(S9_hex), .out_d(S10_hex), .out_e(S11_hex), .out_f(S12_hex), .out_g(S13_hex));
 switch_caractere(.a(A), .b(B), .c(C), .d(D), .e(E), .out_a(S14_hex), .out_b(S15_hex), .out_c(S16_hex), .out_d(S17_hex), .out_e(S18_hex), .out_f(S19_hex), .out_g(S20_hex));
+error(.a(A), .b(B), .c(C), .d(D), .e(E), .s1(S21_hex), .s2(S22_hex), .s3(S23_hex), .s4(S24_hex), .s5(S25_hex), .s6(S26_hex));
+
 
 not(Dn,D);
 not(Bn, B);
