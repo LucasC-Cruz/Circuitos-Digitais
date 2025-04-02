@@ -1,0 +1,27 @@
+
+
+
+module error(
+	input wire a, b, c, d, e,
+	output wire s1, s2, s3, s4, s5, s6
+	);
+	wire na, nb, nc;
+	wire s01;
+	
+	
+//
+	not(na, a);
+	not(nb, b);
+	not(nc, c);
+
+	and(s01, nb, nc);
+	or(s1, na, s01);
+	and(s2, s1, s1);
+	and(s3, s1, s1);
+	and(s4, s1, s1);
+	and(s5, s1, s1);
+	and(s6, s1, s1);
+	
+	
+	
+endmodule
