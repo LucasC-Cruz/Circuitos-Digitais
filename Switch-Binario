@@ -66,30 +66,32 @@ not(Cn, C);
 not(An, A);
 not(En, E);
 
-
+//1
 and(w1, B, D);
 and(w2, B, C);
 
 or(S0, w1, w2, A);
 
-
+//2
 and(w5, An, Bn);
 and(w6, Cn, Dn);
 and(w7, Bn, Cn);
 or(S1, w5, w6, w7);
 
+//3
 and(w8, An, Bn);
 and(w9, C, D, E);
 and(w10, An, Cn, Dn);
 and(w11, Bn, D, E);
 or(S2, w8, w9, w10, w11);
 
+//4
 and(w12, B, Cn, Dn);
 and(w13, B, C, D, E);
 and(w14, A, D);
 or(S3, w12, w13, w14);
 
-
+//5
 and(w15, An, Bn, C);
 and(w16, C, Dn, E);
 and(w17, C, D, En);
@@ -97,13 +99,14 @@ and(w18, A, E);
 and(w19, A, D);
 or(S4, w15, w16, w17, w18, w19);
 
-
+//6
 and(w20, B, C, Dn, En);
 and(w21, A, Cn, En);
 and(w22, An, Bn, D);
 and(w23, An, D, E);
 or(S5, w20, w21, w22, w23);
 
+//7
 and(w24, An, Bn, E);
 and(w25, B, D, En);
 and(w26, B, C, En);
