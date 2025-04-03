@@ -51,7 +51,6 @@ wire w1, w2, w3, w4, w5, w6;
 wire w7, w8, w9, w10, w11, w12;
 wire w13, w14, w15, w16, w17, w18;
 wire w19, w20, w21, w22, w23, w24;
-wire w25, w26, w27, w28;
 wire Dn, Bn, Cn, An, En;
 
 binary_hexadecimal(.B(S0), .C(S1), .D(S2), .out_a(S0_hex), .out_b(S1_hex), .out_c(S2_hex), .out_d(S3_hex), .out_e(S4_hex), .out_f(S5_hex), .out_g(S6_hex));
@@ -69,49 +68,46 @@ not(En, E);
 //1
 and(w1, B, D);
 and(w2, B, C);
-
 or(S0, w1, w2, A);
 
 //2
-and(w5, An, Bn);
-and(w6, Cn, Dn);
-and(w7, Bn, Cn);
-or(S1, w5, w6, w7);
+and(w3, Cn, Dn);
+or(S1, w3, Bn);
 
 //3
-and(w8, An, Bn);
-and(w9, C, D, E);
-and(w10, An, Cn, Dn);
-and(w11, Bn, D, E);
-or(S2, w8, w9, w10, w11);
+and(w4, An, Bn);
+and(w5, C, D, E);
+and(w6, An, Cn, Dn);
+and(w7, Bn, D, E);
+or(S2, w4, w5, w6, w7);
 
 //4
-and(w12, B, Cn, Dn);
-and(w13, B, C, D, E);
-and(w14, A, D);
-or(S3, w12, w13, w14);
+and(w8, B, Cn, Dn);
+and(w9, B, C, D, E);
+and(w10, A, D);
+or(S3, w8, w9, w10);
 
 //5
-and(w15, An, Bn, C);
-and(w16, C, Dn, E);
-and(w17, C, D, En);
-and(w18, A, E);
-and(w19, A, D);
-or(S4, w15, w16, w17, w18, w19);
+and(w11, Bn, C);
+and(w12, C, Dn, E);
+and(w13, C, D, En);
+and(w14, A, E);
+and(w15, A, D);
+or(S4, w11, w12, w13, w14, w15);
 
 //6
-and(w20, B, C, Dn, En);
-and(w21, A, Cn, En);
-and(w22, An, Bn, D);
-and(w23, An, D, E);
-or(S5, w20, w21, w22, w23);
+and(w16, B, C, Dn, En);
+and(w17, A, En);
+and(w18, An, Bn, D);
+and(w19, An, D, E);
+or(S5, w16, w17, w18, w19);
 
 //7
-and(w24, An, Bn, E);
-and(w25, B, D, En);
-and(w26, B, C, En);
-and(w27, A, D, En);
-and(w28, An, Cn, Dn, E);
-or(S6, w24, w25, w26, w27, w28);
+and(w20, An, Bn, E);
+and(w21, B, D, En);
+and(w22, B, C, En);
+and(w23, A, D, En);
+and(w24, An, Cn, Dn, E);
+or(S6, w20, w21, w22, w23, w24);
 
 endmodule
