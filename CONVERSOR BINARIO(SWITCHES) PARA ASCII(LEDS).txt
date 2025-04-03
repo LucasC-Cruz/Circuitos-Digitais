@@ -1,41 +1,28 @@
 CONVERSOR BINARIO(SWITCHES) PARA ASCII(LEDS)
 
-#LED 9
-assign LED_A = (B & D) | (B & C) | (A);
-
+//1
 and(w1, B, D);
 and(w2, B, C);
 or(S0, w1, w2, A);
 
-#LED 8
-assign LED_B = (~B) | (~C & ~D);
-
+//2
 and(w3, Cn, Dn);
 or(S2, w3, Bn);
 
-
-#LED 7
-assign LED_C = (~A & ~B) | (C & D & E) | (~A & ~C & ~D) | (~B & D & E);
-
-
+//3
 and(w4, An, Bn);
 and(w5, C, D, E);
 and(w6, An, Cn, Dn);
 and(w7, Bn, D, E);
 or(S3, w4, w5, w6, w7);
 
-#LED 6
-assign LED_D = (B & ~C & ~D) | (B & C & D & E) | (A & D);
-
+//4
 and(w8, B, Cn, Dn);
 and(w9, B, C, D, E);
 and(w10, A, D);
 or(S4, w8, w9, w10);
 
-
-#LED 5
-assign LED_E = (~B & C) | (C & ~D & E) | (C & D & ~E) | (A & E) | (A & D);
-
+//5
 and(w11, Bn, C);
 and(w12, C, Dn, E);
 and(w13, C, D, En);
@@ -43,22 +30,17 @@ and(w14, A, E);
 and(w15, A, D);
 or(S5, w11, w12, w13, w14, w15);
 
-#LED 4
-assign LED_f = (B & C & ~D & ~E) | (A & ~E) | (~A & ~B & D) | (~A & D & E);
-
+//6
 and(w16, B, C, Dn, En);
 and(w17, A, En);
 and(w18, An, Bn, D);
 and(w19, An, D, E);
 or(S6, w16, w17, w18, w19);
 
-#LED 3
-assign LED_g = (~A & ~B & E) | (B & D & ~E) | (B & C & ~E) | (A & D & ~E) | (~A & ~C & ~D & E);
-
+//7
 and(w20, An, Bn, E);
 and(w21, B, D, En);
 and(w22, B, C, En);
 and(w23, A, D, En);
 and(w24, An, Cn, Dn, E);
 or(S7, w20, w21, w22, w23, w24);
-
