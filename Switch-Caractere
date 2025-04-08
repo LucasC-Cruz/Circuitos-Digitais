@@ -18,12 +18,17 @@ module switch_caractere(
     wire t1_f, t2_f, t3_f, t4_f;
     wire t1_g, t2_g, t3_g, t4_g;
 
+//Expressão lógica utilizada para o funcionamento do segmento "a" do display de 7 segmentos da DE10-Lite
+// (~A & ~B & ~C & ~D & E) | (~A & ~B & C & ~D & E) | (A & ~C)
+
     and (t1_a, not_b, not_c, not_d, e);
     and (t2_a, not_a, not_b, c, not_e);
     and (t3_a, a, not_c);
     or (out_a, t1_a, t2_a, t3_a);
 
-   
+//Expressão lógica utilizada para o funcionamento do segmento "b" do display de 7 segmentos da DE10-Lite
+// (~A & ~B & C & ~D & E) | (~A & C & D & ~E) | (B & C & ~E) | (A & ~C & D) | (A & ~C & ~E)
+
     and (t1_b, not_a, not_b, c, not_d, e);
     and (t2_b, not_a, c, d, not_e);
     and (t3_b, b, c, not_e);
@@ -31,14 +36,18 @@ module switch_caractere(
     and (t5_b, a, not_c, not_e);
     or (out_b, t1_b, t2_b, t3_b, t4_b, t5_b);
 
-	 //(~a & ~b & ~c & d & ~e) | (b & c & ~e) | (b & c & d) | (a & d & e);
+//Expressão lógica utilizada para o funcionamento do segmento "c" do display de 7 segmentos da DE10-Lite
+// (~a & ~b & ~c & d & ~e) | (b & c & ~e) | (b & c & d) | (a & d & e);
+
     and (t1_c, not_a, not_b, not_c, d, not_e);
     and (t2_c, b, c, not_e);
     and (t3_c, b, c, d);
-	 and(t4_c, a, d, e);
+    and(t4_c, a, d, e);
     or (out_c, t1_c, t2_c, t3_c, t4_c);
 
-   
+//Expressão lógica utilizada para o funcionamento do segmento "d" do display de 7 segmentos da DE10-Lite
+// (~A & ~C & ~D & E) | (~B & C & ~D & ~E) | (~A & ~B & C & D & E) | (B & ~C & D & ~E) | (A & ~C & D & E)
+
     and (t1_d, not_a, not_c, not_d, e);
     and (t2_d, not_b, c, not_d, not_e);
     and (t3_d, not_a, not_b, c, d, e);
@@ -46,13 +55,16 @@ module switch_caractere(
     and (t5_d, a, not_c, d, e);
     or (out_d, t1_d, t2_d, t3_d, t4_d, t5_d);
 
- 
+//Expressão lógica utilizada para o funcionamento do segmento "e" do display de 7 segmentos da DE10-Lite
+ // (~A & ~B & E) | (~A & ~B & C & D) | (~A & ~C & ~D & E)
+
     and (t1_e, not_a, not_b, e);
     and (t2_e, not_a, not_b, c, not_d);
     and (t3_e, not_a, not_c, not_d, e);
     or (out_e, t1_e, t2_e, t3_e);
 
-
+//Expressão lógica utilizada para o funcionamento do segmento "f" do display de 7 segmentos da DE10-Lite
+// (~A & ~B & ~C & E) | (~B & ~C & D & ~E) | (~A & C & D & E) | (~B & ~C & ~D & E)
 
     and (t1_f, not_a, not_b, not_c, e);
     and (t2_f, not_b, not_c, d, not_e);
@@ -60,6 +72,8 @@ module switch_caractere(
     and (t4_f, not_b, not_c, not_d, e);
     or (out_f, t1_f, t2_f, t3_f, t4_f);
 
+//Expressão lógica utilizada para o funcionamento do segmento "g" do display de 7 segmentos da DE10-Lite
+// (~A & ~B & ~C & ~D) | (~A & ~B & C & D & E) | (B & C & ~D) | (A & ~C & D & E)
 
     and (t1_g, not_a, not_b, not_c, not_d);
     and (t2_g, not_a, not_b, c, d, e);
