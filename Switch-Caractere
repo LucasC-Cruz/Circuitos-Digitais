@@ -1,14 +1,21 @@
+// TRANSFORMA AS ENTRADAS NOS SWITCHES EM UM CARACTERE EXIBIDO NO DIPLAY DE 7 SEGMENTOS
+
+// ENTRADAS E SAÍDAS
+
 module switch_caractere(
     input wire a, b, c, d, e,
     output wire out_a, out_b, out_c, out_d, out_e, out_f, out_g
 );
 
+// NEGAÇÃO DAS ENTRADAS
     wire not_a, not_b, not_c, not_d, not_e;
     not (not_a, a);
     not (not_b, b);
     not (not_c, c);
     not (not_d, d);
     not (not_e, e);
+
+// DECLARAÇÃO DE FIOS INTERMEDIÁRIOS
 
     wire t1_a, t2_a, t3_a;
     wire t1_b, t2_b, t3_b, t4_b, t5_b;
