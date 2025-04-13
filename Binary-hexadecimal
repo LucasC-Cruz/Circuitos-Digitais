@@ -1,9 +1,15 @@
-//MODULO DOS 4 BITS MAIS SIGNIFICATIVOS
+
+// CONVERTE OS 4 BITS MAIS SIGNIFICATIVOS DO CARACTERE ASCII EM UMA SAÍDA HEXADECIMAL NO DISPLAY DE 7 SEGMENTOS
+
+//ENTRADAS E SAÍDAS
 
 module binary_hexadecimal(
     input A, B, C, D,
     output out_a, out_b, out_c, out_d, out_e, out_f, out_g
 );
+
+//FIOS INTERMEDIÁRIOS
+
     wire nA, nB, nC, nD;
     wire t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18, t19, t20, t21, t22, t23, t24, t25;
    
