@@ -1,5 +1,13 @@
+//Este é o módulo principal do programa, nele são chamados todos os outros módulos. 
+
+/* 
+Converte as entradas binárias nos switches da placa em um ASCII de um caractere definido previamente sendo
+exibido nos LEDs
+*/
+
+//ENTRADAS E SAÍDAS
 module switch_binary(
-    /*switch para o binário*/
+
     input wire A,
     input wire B,
     input wire C,
@@ -46,6 +54,7 @@ output wire S26_hex
 
 );
 
+//FIOS INTERMEDIÁRIOS
 
 wire w1, w2, w3, w4, w5, w6;
 wire w7, w8, w9, w10, w11, w12;
@@ -53,12 +62,17 @@ wire w13, w14, w15, w16, w17, w18;
 wire w19, w20, w21, w22, w23, w24;
 wire Dn, Bn, Cn, An, En;
 
+//Chama o módulo que converte os 4 dígitos mais significativos do ASCII do caractere em uma exibição no display de 7 segmentos.
 binary_hexadecimal(.B(S0), .C(S1), .D(S2), .out_a(S0_hex), .out_b(S1_hex), .out_c(S2_hex), .out_d(S3_hex), .out_e(S4_hex), .out_f(S5_hex), .out_g(S6_hex));
+
+//Chama o módulo que converte os 4 dígitos menos significativos do ASCII do caractere em uma exibição no display de 7 segmentos
 binary_hexadecimal_less(.A(S3), .B(S4), .C(S5), .D(S6), .out_a(S7_hex), .out_b(S8_hex), .out_c(S9_hex), .out_d(S10_hex), .out_e(S11_hex), .out_f(S12_hex), .out_g(S13_hex));
+
+//Chama o módulo que converte um conjunto de entradas nos switches em uma exibição no display de 7 segmentos
 switch_caractere(.a(A), .b(B), .c(C), .d(D), .e(E), .out_a(S14_hex), .out_b(S15_hex), .out_c(S16_hex), .out_d(S17_hex), .out_e(S18_hex), .out_f(S19_hex), .out_g(S20_hex));
 error(.a(A), .b(B), .c(C), .d(D), .e(E), .s1(S21_hex), .s2(S22_hex), .s3(S23_hex), .s4(S24_hex), .s5(S25_hex), .s6(S26_hex));
 
-
+// LÓGICA DO MÓDULO SWITCH-BINÁRIO
 not(Dn,D);
 not(Bn, B);
 not(Cn, C);
