@@ -25,3 +25,4 @@ Desenho do caractere → Display de 7 segmentos principal
 Hexadecimal (4 MSB e 4 LSB) → Dois displays de 7 segmentos adicionais
 
 Entrada inválida → Todos os pontos dos displays piscam como erro.
+
